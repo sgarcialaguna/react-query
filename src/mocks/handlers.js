@@ -21,6 +21,6 @@ export const handlers = [
   rest.get("/users/:id", (req, res, ctx) => {
     const { id } = req.params;
 
-    return res(ctx.delay(10001), ctx.json(users.find((b) => b.id === id)));
+    return res(ctx.delay(1000), ctx.json(users.find((b) => b.id === id)));
   }),
 ];
