@@ -8,27 +8,19 @@ let users = [...Array(2)].map(() => ({
   email: faker.internet.exampleEmail(),
   company: faker.company.name(),
 }));
-// let people = [
-//   {
-//     id: faker.string.nanoid(),
-//     fullName: faker.person.name(),
-//     company: faker.company.name(),
-//   },
-//   {
-//     id: nanoid(),
-//     title: "King James Bible",
-//     author: "Various",
-//     published: "1769",
-//   },
-// ];
 
 export const handlers = [
   rest.get("/users", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(users));
+    return res(ctx.delay(1000), ctx.json(users));
+  }),
+  rest.put("/users", async (req, res, ctx) => {
+    const newUser = { id: nanoid(), ...(await req.json()) };
+    users.push(newUser);
+    return res(ctx.delay(1000), ctx.json(newUser));
   }),
   rest.get("/users/:id", (req, res, ctx) => {
     const { id } = req.params;
 
-    return res(ctx.json(users.find((b) => b.id === id)));
+    return res(ctx.delay(10001), ctx.json(users.find((b) => b.id === id)));
   }),
 ];

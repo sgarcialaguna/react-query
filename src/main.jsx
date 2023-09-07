@@ -6,6 +6,7 @@ import UserDetail from "./UserDetail.jsx";
 import { worker } from "./mocks/browser.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import AddUser from "./AddUser.jsx";
 
 const queryClient = new QueryClient();
 worker.start();
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/:id",
     element: <UserDetail />,
+  },
+  {
+    path: "/addUser",
+    element: <AddUser />,
   },
 ]);
 

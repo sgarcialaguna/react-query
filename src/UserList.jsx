@@ -21,6 +21,9 @@ function UserList() {
           {user.fullName}
         </Link>
       ))}
+      <Link to="addUser">
+        <button type="button">Add User</button>
+      </Link>
     </>
   );
 }
