@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-function App() {
-  // const queryClient = useQueryClient();
+function BookList() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["books", "list"],
     queryFn: () => fetch("books").then((res) => res.json()),
@@ -23,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default BookList;

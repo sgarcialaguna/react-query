@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import BookList from "./BookList.jsx";
 import { worker } from "./mocks/browser.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -12,7 +12,7 @@ worker.start();
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <BookList />,
   },
 ]);
 
