@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 export default function UserDetail() {
@@ -18,6 +18,9 @@ export default function UserDetail() {
       <p>Full Name: {data.fullName}</p>
       <p>Email: {data.email}</p>
       <p>Company: {data.company}</p>
+      <Link to={`/${id}/edit`}>
+        <button type="button">Edit</button>
+      </Link>
     </>
   );
 }
