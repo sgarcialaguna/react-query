@@ -13,10 +13,11 @@ export default function AddUser() {
         body: JSON.stringify(newUser),
       }).then((res) => res.json()),
     onSuccess: (newUser) => {
-      //   queryClient.setQueriesData(["users", "list"], (previous) => [
-      //     ...previous,
-      //     newUser,
-      //   ]);
+      queryClient.setQueryData(["users", "detail", newUser.id], newUser);
+      queryClient.setQueriesData(["users", "list"], (previous) => [
+        ...previous,
+        newUser,
+      ]);
       navigate("/");
     },
   });
