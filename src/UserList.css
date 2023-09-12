@@ -1,4 +1,5 @@
-a {
+a,
+.user {
     display: block;
     padding-block: 0.5rem;
 }

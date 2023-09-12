@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AddUser from "./AddUser.jsx";
 import EditUser from "./EditUser.jsx";
+import InfiniteUserList from "./InfiniteUserList.jsx";
 
 const queryClient = new QueryClient();
 worker.start();
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <UserList />,
+  },
+  {
+    path: "/infinite",
+    element: <InfiniteUserList />,
   },
   {
     path: "/:id",
