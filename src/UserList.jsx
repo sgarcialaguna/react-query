@@ -5,7 +5,7 @@ import "./UserList.css";
 function UserList() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["users", "list"],
-    queryFn: () => fetch("users").then((res) => res.json()),
+    queryFn: () => fetch(document.baseURI + "users").then((res) => res.json()),
   });
 
   if (isLoading) {

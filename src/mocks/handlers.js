@@ -2,8 +2,8 @@ import { rest } from "msw";
 import { nanoid } from "nanoid";
 import { faker } from "@faker-js/faker";
 
-let users = [...Array(2)].map(() => ({
-  id: nanoid(),
+let users = [...Array(2)].map((_, index) => ({
+  id: index + 1,
   fullName: faker.person.fullName(),
   email: faker.internet.exampleEmail(),
   company: faker.company.name(),
