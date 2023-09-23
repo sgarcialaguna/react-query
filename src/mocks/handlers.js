@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import { nanoid } from "nanoid";
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/en";
 
 let users = [...Array(2)].map((_, index) => ({
   id: index + 1,
