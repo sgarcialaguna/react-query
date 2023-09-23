@@ -39,30 +39,57 @@ function User({ user }) {
       window.setTimeout(() => setEditing(false), 0);
     },
   });
-  return editing ? (
-    <form
-      onSubmit={(event) => {
-        // console.log("Submitting");
-        event.preventDefault();
-        event.stopPropagation();
-        updateUser.mutate(event, {
-          onSuccess: () => {
-            // setEditing(false);
-          },
-        });
-        // console.log("Submitting done");
-      }}
-    >
-      <input type="text" name="fullName" defaultValue={user.fullName} />
-    </form>
-  ) : (
-    <div
+  return (
+    <Link
       key={user.id}
       style={{ lineHeight: 1.6 }}
-      onClick={() => setEditing(true)}
+      to={`${user.id}/edit`}
+      onClick={(event) => {
+        if (event.clientX === 0 && event.clientY === 0) {
+          event.preventDefault();
+        }
+        console.log("Link handler");
+        console.log(event);
+      }}
     >
-      {user.fullName}
-    </div>
+      {editing ? (
+        <form
+          onSubmit={(event) => {
+            // console.log("Submitting");
+            event.preventDefault();
+            event.stopPropagation();
+            updateUser.mutate(event, {
+              onSuccess: () => {
+                // setEditing(false);
+              },
+            });
+            // console.log("Submitting done");
+          }}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }}
+        >
+          <input type="text" name="fullName" defaultValue={user.fullName} />
+        </form>
+      ) : (
+        <>
+          {user.fullName}
+          <button
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              console.log("Button handler");
+              console.log(event);
+              setEditing(true);
+            }}
+          >
+            Edit
+          </button>
+        </>
+      )}
+    </Link>
   );
 }
 

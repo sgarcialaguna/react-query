@@ -34,40 +34,41 @@ export default function EditUser() {
     },
     [updateUser]
   );
-  if (!user) {
-    return null;
-  }
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="inputs">
-        <label htmlFor="fullName"> Full Name</label>
-        <input
-          type="text"
-          name="fullName"
-          id="fullName"
-          required
-          defaultValue={user.fullName}
-        />
+  return <div>PLACEHOLDER</div>;
+  // if (!user) {
+  //   return null;
+  // }
+  // return (
+  //   <form onSubmit={handleSubmit}>
+  //     <div className="inputs">
+  //       <label htmlFor="fullName"> Full Name</label>
+  //       <input
+  //         type="text"
+  //         name="fullName"
+  //         id="fullName"
+  //         required
+  //         defaultValue={user.fullName}
+  //       />
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          required
-          defaultValue={user.email}
-        />
+  //       <label htmlFor="email">Email</label>
+  //       <input
+  //         type="text"
+  //         name="email"
+  //         id="email"
+  //         required
+  //         defaultValue={user.email}
+  //       />
 
-        <label htmlFor="company">Company</label>
-        <input
-          type="text"
-          name="company"
-          id="company"
-          required
-          defaultValue={user.company}
-        />
-      </div>
-      <button type="submit">Save</button>
-    </form>
-  );
+  //       <label htmlFor="company">Company</label>
+  //       <input
+  //         type="text"
+  //         name="company"
+  //         id="company"
+  //         required
+  //         defaultValue={user.company}
+  //       />
+  //     </div>
+  //     <button type="submit">Save</button>
+  //   </form>
+  // );
 }
